@@ -1,15 +1,18 @@
 <template>
-  <hello-world />
+  <div class="text-center">
+    <users-table />
+    <add-user-modal-window />
+  </div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import usersTable from "../components/UsersTable.vue";
+  import addUserModalWindow from "../components/AddUserModalWindow.vue";
 
   export default {
-    name: 'Home',
-
     components: {
-      HelloWorld,
+      usersTable,
+      addUserModalWindow
     },
   }
 </script>
