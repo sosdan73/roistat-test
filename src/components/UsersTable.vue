@@ -237,9 +237,6 @@ table {
   width: 80%;
   margin: auto;
 }
-.table-border {
-  border: 1px solid black;
-}
 .table-cell_name {
   width: 40%;
 }
