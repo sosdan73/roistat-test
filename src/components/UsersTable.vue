@@ -101,22 +101,6 @@ export default {
   data() {
     return {
       filter: "none",
-      filterEvolveTable: {
-        name: {
-          none: "name",
-          name: "name-reverse",
-          "name-reverse": "none",
-          phone: "name",
-          "phone-reverse": "name"
-        },
-        phone: {
-          none: "phone",
-          name: "phone",
-          "name-reverse": "phone",
-          phone: "phone-reverse",
-          "phone-reverse": "none"
-        }
-      },
       nameHeaderIsHovered: false,
       phoneHeaderIsHovered: false
     };
@@ -129,7 +113,31 @@ export default {
   methods: {
     ...mapMutations(["initializeUsers"]),
     setFilter(filterChosenValue) {
-      this.filter = this.filterEvolveTable[filterChosenValue][this.filter];
+      if (filterChosenValue == "name") {
+        if (this.filter == "none") {
+          this.filter = "name";
+        } else if (this.filter == "name") {
+          this.filter = "name-reverse";
+        } else if (this.filter == "name-reverse") {
+          this.filter = "none";
+        } else if (this.filter == "phone") {
+          this.filter = "name";
+        } else {
+          this.filter = "name";
+        }
+      } else {
+        if (this.filter == "none") {
+          this.filter = "phone";
+        } else if (this.filter == "name") {
+          this.filter = "phone";
+        } else if (this.filter == "name-reverse") {
+          this.filter = "phone";
+        } else if (this.filter == "phone") {
+          this.filter = "phone-reverse";
+        } else {
+          this.filter = "none";
+        }
+      }
     }
   },
   computed: {
